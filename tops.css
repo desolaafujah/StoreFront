@@ -1,40 +1,24 @@
-h1 {
-  font-weight: 400;
-  font-size: 80px;
-  color: white;
-  font-style: Rotweiler;
-  position: absolute;
-  top: 42%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  text-align: center;
-}
-h2 {
-  font-weight: 400;
-  font-size: 18px;
-  color: white;
-  font-style: Rotweiler;
-  position: absolute;
-  top: 53%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  text-align: center;
+.item1 {
+   position: relative;
+   top: 100px;
+   left: 10px;
+   width:40px;
+   height:50px;
 }
 
-body {
-    background-image: url('storefront6.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+.item2 {
+   position: relative;
+   top: 100px;
+   left: 20px;
+   width:40px;
+   height:50px;
 }
 
 .shopping {
    position: relative;
-   top: -2px;
+   top: -50px;
    right: -1390px;
-   width:30px;
+   width:35px;
    height:35px;
 }
 
@@ -46,11 +30,11 @@ body {
 
 .bar1, .bar2, .bar3 {
   position: relative;
-  top: -2px;
+  top: -50px;
   left: 1387px;
   width: 35px;
   height: 5px;
-  background-color: white;
+  background-color: black;
   margin: 6px 0;
   transition: 0.4s;
 }
