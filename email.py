@@ -1,10 +1,3 @@
-import requests
-import sqlite3
-import os
-from email.message import EmailMessage
-import ssl
-import smtplib
-
 from flask import Flask, render_template, url_for, flash, redirect, request
 from forms import RegistrationForm
 from flask_behind_proxy import FlaskBehindProxy
@@ -21,12 +14,21 @@ app.config['SECRET_KEY'] = '1324f97949e0f2c0cb404cbbfe9b9c9d'
 
 
 @app.route("/")
-@app.route("/home")
 def home():
-    return render_template('home.html', subtitle='Home Page', text='This is the home page')
+    return render_template('practice.html', count=click_count)
+
+@app.route("/increment", methods=['POST'])
+def increment():
+    global click_count
+    click_count += 1
+    return str(click_count)
+
+@app.route("/cart")
+def cart():
+    return render_template('result.html', numbers = {click_count})
 
 
-@app.route("/register", methods=['GET', 'POST'])
+@app.route("/pay", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():  # checks if entries are valid
@@ -34,7 +36,7 @@ def register():
 
         email_sender = 'meh.fruits@gmail.com'
         email_password = 'pykddcyafousrqfs'
-        email_receiver = form.email.data
+        email_receiver = form.email.data # getting the emial from the form
         subject = 'Receipt for StoreFront'
         body = f"""
             Thank you for Shopping with us!!
@@ -51,9 +53,9 @@ def register():
             smtp.login(email_sender, email_password)
             smtp.send_message(em)
 
-        return redirect(url_for('home'))  # if so - send to home page
+        return redirect(url_for('home'))  # if valid - send to home page
 
-    return render_template('payment.html', title='Register', form=form)
+    return render_template('payment.html', title='Register', form=form) # if not - stay in the same page
 
 
 if __name__ == '__main__':
