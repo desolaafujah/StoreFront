@@ -1,8 +1,26 @@
-h1{
-    font-family: "Lucida Grande", Tahoma;
-    text-align: center;
-    vertical-align: middle;
-    color: white;
+h1 {
+  font-weight: 400;
+  font-size: 80px;
+  color: white;
+  font-style: Rotweiler;
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+}
+h2 {
+  font-weight: 400;
+  font-size: 18px;
+  color: white;
+  font-style: Rotweiler;
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
 }
 
 body {
@@ -14,20 +32,22 @@ body {
 
 .shopping {
    position: relative;
-   top: -70px;
+   top: -2px;
    right: -1390px;
    width:30px;
    height:35px;
 }
 
-.container {
-  display: inline-block;
-  cursor: pointer;
+.shopping img:hover {
+  color: #f1f1f1;
 }
 
 /* Display options menu: */
 
 .bar1, .bar2, .bar3 {
+  position: relative;
+  top: -2px;
+  left: 1387px;
   width: 35px;
   height: 5px;
   background-color: white;
@@ -35,14 +55,18 @@ body {
   transition: 0.4s;
 }
 
+.bar1, .bar2, .bar3 div:hover {
+  color: #f1f1f1;
+}
+
 /* The side navigation menu */
 .sidenav {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
   top: 0;
-  left: 0;
+  right: 0;
   background-color: #111; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
