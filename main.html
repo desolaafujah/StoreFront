@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -6,45 +6,33 @@
         <title>Store Front</title>
         <link href="main.css" rel="stylesheet" type="text/css"/>
     </head>
-
     <body>
         <h1>StoreFront</h1>
         <h2>shopping made simple.</h2>
-        <a href="shopping.html">
-            <button class="cart-button"><img src="shopping.png" class="shopping" alt="Cart"></button>
-        </a>
-        
-    
+        <button type="button" onclick="location.href='shopping.html';" style="width: 30px; height: 35px; position:relative; top: -2px; right:-1390px; ">
+            <img src="image/shoppingbagblack.png" alt="bag" style="width: 100%; height: auto;">
+        </button>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="shopping.html" class=link>Shop All</a>
-            
         </div>
-
-
         <!-- Use any element to open the sidenav -->
         <span onclick="openNav(this)">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
         </span>
-
         <script>
-
             /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
             function openNav() {
                 document.getElementById("mySidenav").style.width = "250px";
                 document.getElementById("main").style.marginLeft = "250px";
             }
-
             /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
             function closeNav() {
                 document.getElementById("mySidenav").style.width = "0";
                 document.getElementById("main").style.marginLeft = "0";
             }
-
         </script>
-
         </body>
-
 </html>
