@@ -50,12 +50,12 @@ def register():
             smtp.login(email_sender, email_password)
             smtp.send_message(em)
 
-        click_count = dict.fromkeys(click_count,0)    
+        click_count = {f'item{i+1}': 0 for i in range(8)}  
 
-        return render_template('practice.html', count=click_count)
+        return redirect(url_for('home'))  # if valid - send to home page
 
-    return render_template('register.html', title='Register', form=form)
+    return render_template('payment.html', title='Register', form=form)
 
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True, host="0.0.0.0", port=8000)
     
