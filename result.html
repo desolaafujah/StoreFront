@@ -7,9 +7,10 @@
     <h1>Cart</h1>
     <ul>
     {% for number in numbers %}
-        <li>{{ number }}</li>
+        {% if numbers[number] != 0 %}
+            <li>{{ number }} : {{ numbers[number] }}</li>
+        {% endif %}
     {% endfor %}
     </ul>
-    
 </body>
 </html>
