@@ -12,7 +12,7 @@ app.config['SECRET_KEY'] = '1324f97949e0f2c0cb404cbbfe9b9c9d'
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('practice.html', count=click_count)
+    return render_template('shopping.html')
 
 @app.route("/increment", methods=['POST'])
 def increment():
