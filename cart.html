@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>Cart</title>
-        <link href="cart.css" rel="stylesheet" type="text/css"
-    </head>
+<head>
+    <title>Cart</title>
+    <link href="cart.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.cdnfonts.com/css/graphik" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="container">
+        <header>
+            <h1>Your Shopping Cart</h1>
+            <div class="shopping">
+                <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png">
+                <span class="quantity">0</span>
+            </div>
+        </header>
+        <div class="image-container">
+            <img src="whiteshirt.jpeg" class="small-image">
+            <img src="skirt.jpeg" class="small-image">
+            <img src="stripedset.jpeg" class="small-image">
+        </div>
+        <div class="list"></div>
+    </div>
+    <div class="card">
+        <h1>Cart</h1>
+        <ul class="listCard"></ul>
+        <div class="checkOut">
+            <div class="total">0</div>
+            <div class="closeShopping">Close</div>
+        </div>
+    </div>
 
-    <body>
-        <h1>Your CART</h1>
 
+    <ul>
+    {% for number in numbers %}
+        <li>{{ number }}</li>
+    {% endfor %}
+    </ul>
 
-    </body>
+    <button id="addButton">Add to Cart</button>
 
-
-
-
-
-
+    <script>
+        document.getElementById('addButton').addEventListener('click', function() {
+            // Handle adding item to the cart here
+            // You can use JavaScript to add the item to the 'numbers' list or trigger a server-side action
+        });
+    </script>
+</body>
 </html>
+
