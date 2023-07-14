@@ -10,6 +10,7 @@ import certifi
 app = Flask(__name__)
 list_cards_string = '' # Define list_cards as a global variable
 updated_list_cards = []
+
 app.config['SECRET_KEY'] = '1324f97949e0f2c0cb404cbbfe9b9c9d'
 
 @app.route("/")
@@ -114,9 +115,4 @@ def update_cart():
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=8000)
-
-
-
-
-
 
