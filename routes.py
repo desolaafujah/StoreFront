@@ -4,7 +4,7 @@ import smtplib
 from email.message import EmailMessage
 import ssl
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 click_count = {f'item{i+1}': 0 for i in range(8)}
 
 app.config['SECRET_KEY'] = '1324f97949e0f2c0cb404cbbfe9b9c9d'
