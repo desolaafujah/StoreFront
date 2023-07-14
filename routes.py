@@ -54,21 +54,22 @@ def register():
         total_price = 0
 
         for item in updated_list_cards:
-            name = item['name']
-            price = item['price']
-            quantity = item['quantity']
+            if item != None: 
+                name = item['name']
+                price = item['price']
+                quantity = item['quantity']
 
-            total_price += price * quantity
+                total_price += price * quantity
 
-            row_html = f"""
-            <tr>
-                <td>{name}</td>
-                <td>{price}</td>
-                <td>{quantity}</td>
-            </tr>
-            """
+                row_html = f"""
+                <tr>
+                    <td>{name}</td>
+                    <td>{price}</td>
+                    <td>{quantity}</td>
+                </tr>
+                """
 
-            table_html += row_html
+                table_html += row_html
 
         total_row_html = f"""
         <tr>
