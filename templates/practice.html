@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Click Counter</title>
+</head>
+<body>
+    <h1>Shop</h1>
+
+    {% for item, count in count.items() %}
+    <p>{{ item }} Clicked: <span id="{{ item }}">{{ count }}</span> Times</p>
+    {% endfor %}
+
+    <button id="btn1" onclick="incrementCount(0)">Increment Item 1</button>
+
+    <button id="btn2" onclick="incrementCount(1)">Increment Item 2</button>
+    
+    <button id="btn3" onclick="incrementCount(2)">Increment Item 3</button>
+    <button id="btn4" onclick="incrementCount(3)">Increment Item 4</button>
+    <button id="btn5" onclick="incrementCount(4)">Increment Item 5</button>
+    <button id="btn6" onclick="incrementCount(5)">Increment Item 6</button>
+    <button id="btn7" onclick="incrementCount(6)">Increment Item 7</button>
+    <button id="btn8" onclick="incrementCount(7)">Increment Item 8</button>
+
+    <script>
+        function incrementCount(index) {
+            fetch('/increment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 'button_id': `item${index+1}` })
+            })
+                .then(response => response.text())
+                .then(count => {
+                    updateCount(index, count);
+                });
+        }
+
+        function updateCount(index, count) {
+            const spanId = `item${index+1}`;
+            const countElement = document.getElementById(spanId);
+            if (countElement) {
+                countElement.textContent = count;
+            }
+        }
+    </script>
+</body>
+</html>

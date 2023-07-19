@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+    <link href="cart.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.cdnfonts.com/css/graphik" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="container">
+        <header>
+            <h1>Your Shopping Cart</h1>
+            <div class="shopping">
+                <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png">
+                <span class="quantity">0</span>
+            </div>
+        </header>
+        <div class="image-container">
+            <img src="whiteshirt.jpeg" class="small-image">
+            <img src="blackcorsette.jpeg" class="small-image">
+            <img src="skirt.jpeg" class="small-image">
+            <img src="stripedset.jpeg" class="small-image">
+            <img src="cowboyboot.jpeg" class="small-image">
+        </div>
+        <div class="list"></div>
+    </div>
+    <div class="card">
+        <h1>Cart</h1>
+        <ul class="listCard"></ul>
+        <div class="checkOut">
+            <div class="total">0</div>
+            <div class="closeShopping">Close</div>
+        </div>
+    </div>
+
+
+    <ul>
+    {% for number in numbers %}
+        <li>{{ number }}</li>
+    {% endfor %}
+    </ul>
+
+    <button id="addButton">Add to Cart</button>
+
+    <script>
+        document.getElementById('addButton').addEventListener('click', function() {
+            // Handle adding item to the cart here
+            // You can use JavaScript to add the item to the 'numbers' list or trigger a server-side action
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="content-section" style="margin-top: 30px;">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group" style="margin-bottom: 40px; margin-right: 200px;">
+            <div class="form-group">
+                <label class="form-control-label" style="font-weight: bold; font-size: 18px; font-family: Arial, Helvetica, sans-serif;">{{ form.username.label }}</label>
+                {% if form.username.errors %}
+                    <input type="text" name="{{ form.username.name }}" class="form-control form-control-lg is-invalid" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+                    <div class="invalid-feedback">
+                        {% for error in form.username.errors %}
+                            <span style="color: #dc3545;">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <input type="text" name="{{ form.username.name }}" class="form-control form-control-lg" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label class="form-control-label" style="font-weight: bold; font-size: 18px; font-family: Arial, Helvetica, sans-serif;">{{ form.email.label }}</label>
+                {% if form.email.errors %}
+                    <input type="email" name="{{ form.email.name }}" class="form-control form-control-lg is-invalid" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span style="color: #dc3545;">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <input type="email" name="{{ form.email.name }}" class="form-control form-control-lg" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label class="form-control-label" style="font-weight: bold; font-size: 18px; font-family: Arial, Helvetica, sans-serif;">{{ form.password.label }}</label>
+                {% if form.password.errors %}
+                    <input type="password" name="{{ form.password.name }}" class="form-control form-control-lg is-invalid" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                            <span style="color: #dc3545;">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <input type="password" name="{{ form.password.name }}" class="form-control form-control-lg" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label class="form-control-label" style="font-weight: bold; font-size: 18px; font-family: Arial, Helvetica, sans-serif;" >{{ form.confirm_password.label }}</label>
+                {% if form.confirm_password.errors %}
+                    <input type="password" name="{{ form.confirm_password.name }}" class="form-control form-control-lg is-invalid" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+                    <div class="invalid-feedback">
+                        {% for error in form.confirm_password.errors %}
+                            <span style="color: #dc3545;">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <input type="password" name="{{ form.confirm_password.name }}" class="form-control form-control-lg" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <input type="submit" value="Sign Up" class="btn btn-outline-info" style="padding: 12px 24px; background-color: #007bff; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 18px;">
+            
+        </div>
+    </form>
+</div>
+
+{% endblock %}

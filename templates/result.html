@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body>
+    <h1>Cart</h1>
+    <ul>
+    {% for number in numbers %}
+        {% if numbers[number] != 0 %}
+            <li>{{ number }} : {{ numbers[number] }}</li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Store Front</title>
+    <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <h1>StoreFront</h1>
+    <h2>shopping made simple.</h2>
+    <a href="{{ url_for('shop') }}">
+        <button type="button" style="width: 30px; height: 35px; position:relative; top: -2px; right:-1390px; ">
+            <img src="{{ url_for('static', filename='image/shoppingbagblack.png') }}" alt="bag" style="width: 100%; height: auto;">
+        </button>
+    </a>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="{{ url_for('shop') }}" class="link">Shop All</a>
+    </div>
+    <!-- Use any element to open the sidenav -->
+    <span onclick="openNav()">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </span>
+    <script>
+        /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+        /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+</body>
+</html>
