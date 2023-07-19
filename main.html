@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <link href="https://fonts.cdnfonts.com/css/graphik" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Store Front</title>
+        <link href="main.css" rel="stylesheet" type="text/css"/>
+    </head>
+
+    <body>
+        <h1>StoreFront</h1>
+        <h2>shopping made simple.</h2>
+    
+        <img src="shopping.png" class="shopping">
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="tops.html" target="_blank" href="/Tops">Tops</a>
+            <a href="pants.html" target="_blank" href="/Pants">Pants</a>
+            <a href="skirts.html" target="_blank" href="/Skirts">Skirts</a>
+            <a href="dresses.html" target="_blank" href="/Dresses">Dresses</a>
+            <a href="jackets.html" target="_blank" href="/Jackets">Jackets</a>
+            <a href="boots.html" target="_blank" href="/Boots">Boots</a>
+        </div>
+
+
+        <!-- Use any element to open the sidenav -->
+        <span onclick="openNav(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </span>
+
+        <script>
+
+            /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+
+            /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+            }
+
+        </script>
+
+        </body>
+
+</html>
