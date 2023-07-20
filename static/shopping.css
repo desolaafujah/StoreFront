@@ -149,3 +149,22 @@ header .shopping span {
 .listCard .count {
   margin: 0 10px;
 }
+
+.category-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-section{
+  margin-top: 20px;
+}
+
+.category-section h2 {
+  margin-bottom: 10px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}

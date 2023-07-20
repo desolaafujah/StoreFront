@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Styles</title>
     <link rel="stylesheet" href="static/shopping.css">
 </head>
 <body class="">
@@ -18,10 +18,127 @@
             </div>
         </header>
 
-        <div class="list">
-          
+        <div class="category-wrapper">
+            <div class="category-section" id="casual">
+                <h2>Casual</h2>
+                <div class="list">
+                    <!-- add casual items-->
+                    <div class="item">
+                        <img src="static/image/casual2.jpeg" alt="White T-shirt">
+                        <div class="title">White T-shirt</div>
+                        <div class="price">$20.00</div>
+                        <button onclick="addToCard(0)">Add To Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="static/image/casual1.jpeg" alt="Blue jeans">
+                        <div class="title">Blue Jeans</div>
+                        <div class="price">$59.65</div>
+                        <button onclick="addToCard(1)">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section" id="summer">
+                <h2>Summer</h2>
+                <div class="list">
+                    <!-- add summer items -->
+                    <div class="item">
+                        <img src="static/image/summer1.jpeg" alt="Long green dress">
+                        <div class="title">Long Green Dress</div>
+                        <div class="price">$251.31</div>
+                        <button onclick="addToCard(2)">Add To Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="static/image/summer2.jpeg" alt="Colorful mini dress">
+                        <div class="title">Colorful Mini Dress</div>
+                        <div class="price">$789.0</div>
+                        <button onclick="addToCard(3)">Add To Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="static/image/summer3.jpeg" alt="Floral open back dress">
+                        <div class="title">Floral Open Back Dress</div>
+                        <div class="price">$349.0</div>
+                        <button onclick="addToCard(4)">Add To Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="static/image/summer4.jpeg" alt="Mini blue floral dress">
+                        <div class="title">Mini blue floral dress</div>
+                        <div class="price">$189.0</div>
+                        <button onclick="addToCard(5)">Add To Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="static/image/summer5.jpeg" alt="Long white dress">
+                        <div class="title">Long White Dress</div>
+                        <div class="price">$89.99</div>
+                        <button onclick="addToCard(6)">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section" id="nightout">
+                <h2>Nightout</h2>
+                <div class="list">
+                    <!-- add nighout items -->
+                    <div class="item">
+                        <img src="static/image/nightout1.jpeg" alt="Black corsette">
+                        <div class="title">Black corsette</div>
+                        <div class="price">$49.95</div>
+                        <button onclick="addToCard(7)">Add To Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="static/image/nightout2.jpeg" alt="Black leather pants">
+                        <div class="title">Black leather pants</div>
+                        <div class="price">$59.99</div>
+                        <button onclick="addToCard(8)">Add To Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="static/image/nightout3.jpeg" alt="Striped pants">
+                        <div class="title">Striped Pants</div>
+                        <div class="price">$65.00</div>
+                        <button onclick="addToCard(9)">Add To Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="static/image/nightout4.jpeg" alt="Embroidered top">
+                        <div class="title">Embroidered Top</div>
+                        <div class="price">$128.0</div>
+                        <button onclick="addToCard(10)">Add To Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="static/image/nightout5.jpeg" alt="Silver top">
+                        <div class="title">Silver Top</div>
+                        <div class="price">$52.00</div>
+                        <button onclick="addToCard(11)">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section" id="vintage">
+                <h2>Vintage</h2>
+                <div class="list">
+                    <!-- add vintage items -->
+                    <div class="item">
+                        <img src="static/image/vintage2.jpeg" alt="Vintage leather jacket">
+                        <div class="title">Vintage Leather Jacket</div>
+                        <div class="price">$218.0</div>
+                        <button onclick="addToCard(12)">Add To Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="static/image/vintage1.jpeg" alt="Cowboy boots">
+                        <div class="title">Cowboy Boots</div>
+                        <div class="price">$170.0</div>
+                        <button onclick="addToCard(13)">Add To Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="static/image/vintage3.jpeg" alt="Vintage jean skirt">
+                        <div class="title">Vintage Jean Skirt</div>
+                        <div class="price">$99.00</div>
+                        <button onclick="addToCard(14)">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
     <div class="card">
         <h1>Cart</h1>
         <ul class="listCard">

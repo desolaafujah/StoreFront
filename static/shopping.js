@@ -21,44 +21,51 @@ let products = [
     id: 8,
     name: 'White t-shirt',
     image: 'casual2.jpeg',
-    price: 20.00
+    price: 20.00,
+    category: 'casual'
   },
   {
     id: 4,
     name: 'Blue jeans',
     image: 'casual1.jpeg',
-    price: 59.65
+    price: 59.65,
+    category: 'casual'
   },
   //summer:
   {
     id: 9,
     name: 'Long green dress',
     image: 'summer1.jpeg',
-    price: 251.30
+    price: 251.30,
+    category: 'summer'
   },
   {
     id: 10,
     name: 'Colorful mini dress',
     image: 'summer2.jpeg',
-    price: 789.00
+    price: 789.00,
+    category: 'summer'
   },
   {
     id: 10,
     name: 'Floral open back dress',
     image: 'summer3.jpeg',
-    price: 349.00
+    price: 349.00,
+    category: 'summer'
   },
   {
     id: 11,
     name: 'Mini blue floral dress',
     image: 'summer4.jpeg',
-    price: 189.00
+    price: 189.00,
+    category: 'summer'
   },
   {
     id: 12,
     name: 'Long white dress',
     image: 'summer5.jpeg',
-    price: 89.99
+    price: 89.99,
+    category: 'summer'
   },
   //nightout:
   {
@@ -66,73 +73,125 @@ let products = [
     name: 'Black corsette',
     image: 'nightout1.jpeg',
     price: 49.95,
+    category: 'nightout'
   },
   {
     id: 5,
     name: 'Black leather pants',
     image: 'nightout2.jpeg',
-    price: 59.99
+    price: 59.99,
+    category: 'nightout'
   },
   {
     id: 7,
     name: 'Striped pants',
     image: 'nightout3.jpeg',
-    price: 65.00
+    price: 65.00,
+    category: 'nightout'
   },
   {
     id: 13,
     name: 'Embroidered top',
     image: 'nightout4.jpeg',
-    price: 128.00
+    price: 128.00,
+    category: 'nightout'
   },
   {
     id: 14,
     name: 'Silver top',
     image: 'nightout5.jpeg',
-    price: 52.00
+    price: 52.00,
+    category: 'nightout'
   },
   //vintage:
   {
     id: 3,
     name: 'Vintage leather jacket',
     image: 'vintage2.jpeg',
-    price: 218.00
+    price: 218.00,
+    category: 'vintage'
   },
   {
     id: 2,
     name: 'Cowboy boots',
     image: 'vintage1.jpeg',
-    price: 169.99
+    price: 169.99,
+    category: 'vintage'
   },
   {
     id: 6,
     name: 'Vintage jean skirt',
     image: 'vintage3.jpeg',
-    price: 99.00
+    price: 99.00,
+    category: 'vintage'
   }
 ];
 
 let listCards = [];
 
 function initApp() {
-  products.forEach((value, key) => {
-    let newDiv = document.createElement('div');
-    newDiv.classList.add('item');
-    newDiv.innerHTML = `
-      <img src="static/image/${value.image}" alt="${value.name}">
-      <div class="title">${value.name}</div>
-      <div class="price">${value.price.toLocaleString()}</div>
-      <button onclick="addToCard(${key})">Add To Cart</button>`;
-    list.appendChild(newDiv);
+  // products.forEach((value, key) => {
+  //   let newDiv = document.createElement('div');
+  //   newDiv.classList.add('item');
+  //   newDiv.innerHTML = `
+  //     <img src="static/image/${value.image}" alt="${value.name}">
+  //     <div class="title">${value.name}</div>
+  //     <div class="price">${value.price.toLocaleString()}</div>
+  //     <button onclick="addToCard(${key})">Add To Cart</button>`;
+  //   list.appendChild(newDiv);
+  // });
+
+  const categories = {
+    casual: [],
+    summer: [],
+    nightout: [],
+    vintage: []
+  };
+
+  //separating the products into their respective categories
+  products.forEach((product) => {
+    categories[product.category.toLowerCase()].push(product);
+  });
+
+  //iterating through each category and creates a section for each
+  Object.entries(categories).forEach(([category, categoryProducts]) => {
+    //creating a new section
+    const section = document.createElement('section');
+    section.classList.add('category-section');
+
+    //creating an anchor tag for linking to the category section
+    const categoryLink = document.createElement('a');
+    categoryLink.innerHTML = '<h2>' + category + '</h2>';
+    section.appendChild(categoryLink);
+
+    //setting an id for the section to be used in the href attribute
+    section.id = 'category-' + category;
+
+    categoryProducts.forEach((product, key) => {
+      let newDiv = document.createElement('div');
+      newDiv.classList.add('item');
+      newDiv.innerHTML = `
+        <img src="static/image/${product.image}" alt="${product.name}">
+        <div class="title">
+          <a href="${getProductLink(product.name)}">${product.name}</a>
+        </div>
+        <div class="price">${product.price.toLocaleString()}</div>
+        <button onclick="addToCard(${key})">Add To Cart</button>`;
+      section.appendChild(newDiv);
+    });
+
+    list.appendChild(section);
   });
 }
 
-initApp();
+//initApp();
 
 function addToCard(key) {
   if (listCards[key] == null) {
     listCards[key] = JSON.parse(JSON.stringify(products[key]));
     listCards[key].quantity = 1;
+  } else {
+    listCards[key].quantity += 1; // Increase the quantity of the existing item in the cart
   }
   reloadCard();
 
@@ -213,20 +272,7 @@ function changeQuantity(key, quantity) {
 
 
   
-function initApp() {
-  products.forEach((value, key) => {
-    let newDiv = document.createElement('div');
-    newDiv.classList.add('item');
-    newDiv.innerHTML = `
-      <img src="static/image/${value.image}" alt="${value.name}">
-      <div class="title">
-        <a href="${getProductLink(value.name)}">${value.name}</a>
-      </div>
-      <div class="price">${value.price.toLocaleString()}</div>
-      <button onclick="addToCard(${key})">Add To Cart</button>`;
-    list.appendChild(newDiv);
-  });
-}
+
 
 function getProductLink(productName) {
   // Replace this function with your logic to generate the correct link for each product name
@@ -283,5 +329,6 @@ function getProductLink(productName) {
   }
 }
 
+initApp();
 
   
