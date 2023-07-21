@@ -28,8 +28,7 @@ let products = [
     id: 4,
     name: 'Blue jeans',
     image: 'casual1.jpeg',
-    price: 59.65,
-    category: 'casual'
+    price: 59.69
   },
   //summer:
   {

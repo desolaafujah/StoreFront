@@ -150,21 +150,73 @@ header .shopping span {
   margin: 0 10px;
 }
 
-.category-wrapper {
-  display: flex;
-  flex-direction: column;
+.bar3 {
+  position: fixed;
+  top: 52px;
+  left: 1300px;
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+.bar1{
+  position: fixed;
+  top: 62px;
+  left: 1300px;
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+.bar2{
+  position: fixed;
+  top: 72px;
+  left: 1300px;
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+  transition: 0.4s;
 }
 
-.category-section{
-  margin-top: 20px;
+.bar1,
+.bar2,
+.bar3 div:hover {
+  cursor: pointer;
 }
 
-.category-section h2 {
-  margin-bottom: 10px;
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
 }
 
-.list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
 }
