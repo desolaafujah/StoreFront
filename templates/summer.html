@@ -1,24 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Store Front</title>
-    <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet" type="text/css"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/shopping.css">
 </head>
-<body>
-    <h1>StoreFront</h1>
-    <h2>shopping made simple.</h2>
-    <a href="{{ url_for('shop') }}">
-        <button type="button" style="width: 30px; height: 35px; position:relative; top: -2px; right:-1390px; ">
-            <img src="{{ url_for('static', filename='image/shoppingbagblack.png') }}" alt="bag" style="width: 100%; height: auto;">
-        </button>
-    </a>
-    <a href="{{ url_for('shop') }}">
-        <button type="button" style="width: 30px; height: 35px; position:relative; top: -2px; right:-1390px; ">
-            <img src="{{ url_for('static', filename='image/shoppingbagblack.png') }}" alt="bag" style="width: 100%; height: auto;">
-        </button>
-    </a>
+<body class="">
+    
+    <div class="container">
+        <header>
+            <h1>Summer</h1>
+            <div class="shopping">
+                <img src="static/image/shopping.svg">
+                <span class="quantity">0</span>
+            </div>
+        </header>
+
+        <div class="list">
+          
+        </div>
+    </div>
+    <div class="card">
+        <h1>Cart</h1>
+        <ul class="listCard">
+        </ul>
+        <div class="checkOut">
+            <div class="total">0</div>
+            <div class="closeShopping">Close</div>
+            <a href="{{ url_for('register') }}" class="link">Submit</a>
+        </div>
+    </div>
+
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="{{ url_for('shop') }}" class="link">Shop All</a>
@@ -45,5 +59,7 @@
             document.getElementById("main").style.marginLeft = "0";
         }
     </script>
+
+    <script src="static/summer.js"></script>
 </body>
 </html>

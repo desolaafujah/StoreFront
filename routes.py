@@ -26,6 +26,22 @@ def home():
 def shop():
     return render_template('shopping.html')
 
+@app.route("/vintage")
+def vintage():
+    return render_template('vintage.html')
+
+@app.route("/nightout")
+def nightout():
+    return render_template('nighout.html')
+
+@app.route("/casual")
+def casual():
+    return render_template('casual.html')
+
+@app.route("/summer")
+def summer():
+    return render_template('summer.html')
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
