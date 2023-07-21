@@ -1,5 +1,4 @@
-from flask import Flask, render_template, url_for, flash, redirect, request, jsonify
-from forms import RegistrationForm
+from flask import Flask, render_template, url_for, flash, redirect, request, jsonify, session
 import smtplib
 from email.message import EmailMessage
 import ssl
@@ -7,6 +6,8 @@ from bs4 import BeautifulSoup
 import requests
 import certifi
 from flask_sqlalchemy import SQLAlchemy
+from forms import RegistrationForm, LogForm
+from helper import save_users_to_database
 
 app = Flask(__name__)
 list_cards_string = '' # Define list_cards as a global variable
@@ -28,103 +29,110 @@ def shop():
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
+    # Query the database to check if the username already exists
     existing_user = User.query.filter_by(username=form.username.data).first()
-    if existing_user:
-        # if it does show this message
-        flash('Username is already taken. Please choose a different username.', 'danger')
-    else:
-        #check if a user withe a specific email exists in User database
-        existing_email = User.query.filter_by(email=form.email.data).first()
-        if existing_email:
-            flash('Email is already taken. Please choose a different email.', 'danger')
+
+    if form.validate_on_submit():
+        if existing_user:
+            flash('Username is already taken. Please choose a different username.', 'danger')
         else:
-            # if the username and the email does not exist a new User object is created
-            new_user = User(username=form.username.data, email=form.email.data, password=form.password.data)
-            # the new user is added to the database session
-            db.session.add(new_user)
-            # the changes are commited to the dabase
-            db.session.commit()
-            # display the following message
-            
-            flash(f'Account created for {form.username.data}!', 'success')
+            # Check if the email already exists in the database
+            existing_email = User.query.filter_by(email=form.email.data).first()
+            if existing_email:
+                flash('Email is already taken. Please choose a different email.', 'danger')
+            else:
+                # Create a new user object and add it to the database
+                new_user = User(
+                    username=form.username.data,
+                    email=form.email.data,
+                    password=form.password.data
+                )
+                db.session.add(new_user)
+                db.session.commit()
+                
+                # Display a success message for successful registration
+                flash(f'Account created for {form.username.data}!', 'success')
 
-            email_sender = 'meh.fruits@gmail.com'
-            email_password = 'lenbbbooyivmubzq'
-            email_receiver = form.email.data
-            subject = 'Receipt for StoreFront'
-            
-            body = f"""
-                Thank you for Shopping with us!!
-                This is your receipt.
-            """
+                 # Prepare and send an email to the user
 
-            # Create the HTML table content
+                email_sender = 'meh.fruits@gmail.com'
+                email_password = 'lenbbbooyivmubzq'
+                email_receiver = form.email.data
+                subject = 'Receipt for StoreFront'
+                
+                body = f"""
+                    Thank you for Shopping with us!!
+                    This is your receipt.
+                """
 
-            table_html = """
-            <table style="border-collapse: collapse;">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                    </tr>
-                </thead>
-                <tbody>
-            """
+                # Create the HTML table content
 
-            total_price = 0
+                table_html = """
+                <table style="border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                """
 
-            for item in updated_list_cards:
-                if item != None: 
-                    name = item['name']
-                    price = item['price']
-                    quantity = item['quantity']
+                total_price = 0
 
-                    total_price += price * quantity
+                for item in updated_list_cards:
+                    if item != None: 
+                        name = item['name']
+                        price = item['price']
+                        quantity = item['quantity']
 
-                    row_html = f"""
-                    <tr>
-                        <td>{name}</td>
-                        <td>{price}</td>
-                        <td>{quantity}</td>
-                    </tr>
-                    """
+                        total_price += price * quantity
 
-                    table_html += row_html 
+                        row_html = f"""
+                        <tr>
+                            <td>{name}</td>
+                            <td>{price}</td>
+                            <td>{quantity}</td>
+                        </tr>
+                        """
 
-            total_row_html = f"""
-            <tr>
-                <td>Total Price</td>
-                <td>{total_price}</td>
-                <td></td>
-            </tr>
-            """
+                        table_html += row_html 
 
-            table_html += total_row_html
+                total_row_html = f"""
+                <tr>
+                    <td>Total Price</td>
+                    <td>{total_price}</td>
+                    <td></td>
+                </tr>
+                """
 
-            table_html += """
-                </tbody>
-            </table>
-            """
+                table_html += total_row_html
 
-            body += table_html
+                table_html += """
+                    </tbody>
+                </table>
+                """
 
-            em = EmailMessage()
-            em['From'] = email_sender
-            em['To'] = email_receiver
-            em['Subject'] = subject
-            em.set_content(body, subtype='html')  # Set email content as HTML
+                body += table_html
 
-            context = ssl.create_default_context(cafile=certifi.where())
+                em = EmailMessage()
+                em['From'] = email_sender
+                em['To'] = email_receiver
+                em['Subject'] = subject
+                em.set_content(body, subtype='html')  # Set email content as HTML
 
-            with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
-                smtp.login(email_sender, email_password)
-                smtp.send_message(em)
+                context = ssl.create_default_context(cafile=certifi.where())
 
-            return redirect(url_for('home'))  # if valid - send to home page
+                with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+                    smtp.login(email_sender, email_password)
+                    smtp.send_message(em)
+
+                return redirect(url_for('home'))  # if valid - send to home page
 
     return render_template('payment.html', title='Register', form=form)
 
+# Route to update the cart data
 @app.route("/update_cart", methods=['POST'])
 def update_cart():
     global list_cards_string
@@ -138,7 +146,7 @@ def update_cart():
 @app.route("/log_in", methods=['GET', 'POST'])
 def log_in():
     #create an instance of the log class
-    form = log()
+    form = LogForm()
     if form.validate_on_submit():
         # This queries in the database to find the username and password with the provided username and password
         user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
@@ -225,7 +233,19 @@ def log_in():
         else:
             flash('Invalid username or password. Please try again.', 'danger')
     return render_template('log_in.html', subtitle='Log In', form=form)
+    
+# Auto-deployment route for PythonAnywhere
+@app.route("/update_server", methods=['POST'])
+def webhook():
+    if request.method == 'POST':
+        repo = git.Repo('/home/bodyfitapp/Project-2')
+        origin = repo.remotes.origin
+        origin.pull()
+        return 'Updated PythonAnywhere successfully', 200
+    else:
+        return 'Wrong event type', 400
 
+# Define the User database model
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
