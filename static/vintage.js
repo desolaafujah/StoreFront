@@ -1,7 +1,8 @@
 let openShopping = document.querySelector('.shopping');
 let closeShopping = document.querySelector('.closeShopping');
 let list = document.querySelector('.list');
-let listCard = document.querySelector('.listCard');
+//let listCard = document.querySelector('.listCard');
+import { listCards } from './cart.js';
 let body = document.querySelector('body');
 let total = document.querySelector('.total');
 let quantity = document.querySelector('.quantity');
@@ -21,7 +22,9 @@ let products = [
     id: 3,
     name: 'Vintage leather jacket',
     image: 'vintage2.jpeg',
-    price: 218.00
+    price: 218.00, 
+    link: 'https://cherishthelabel.com/collections/new-arrivals-1/products/vintage-double-collar-oversized-leather-bomber-jacket-xs-xxl', 
+    brand: 'Cherish the label'
   },
   {
     id: 2,
@@ -45,7 +48,9 @@ function initApp() {
     newDiv.classList.add('item');
     newDiv.innerHTML = `
       <img src="static/image/${value.image}" alt="${value.name}">
-      <div class="title">${value.name}</div>
+      <div class="title">
+        <a href="${getProductLink(value.name)}">${value.name}</a>
+      </div>
       <div class="price">${value.price.toLocaleString()}</div>
       <button onclick="addToCard(${key})">Add To Cart</button>`;
     list.appendChild(newDiv);
@@ -136,22 +141,6 @@ function changeQuantity(key, quantity) {
   xhr.send(data);
 }
 
-
-  
-function initApp() {
-  products.forEach((value, key) => {
-    let newDiv = document.createElement('div');
-    newDiv.classList.add('item');
-    newDiv.innerHTML = `
-      <img src="static/image/${value.image}" alt="${value.name}">
-      <div class="title">
-        <a href="${getProductLink(value.name)}">${value.name}</a>
-      </div>
-      <div class="price">${value.price.toLocaleString()}</div>
-      <button onclick="addToCard(${key})">Add To Cart</button>`;
-    list.appendChild(newDiv);
-  });
-}
 
 function getProductLink(productName) {
   // Replace this function with your logic to generate the correct link for each product name

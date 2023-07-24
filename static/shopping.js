@@ -1,7 +1,8 @@
 let openShopping = document.querySelector('.shopping');
 let closeShopping = document.querySelector('.closeShopping');
 let list = document.querySelector('.list');
-let listCard = document.querySelector('.listCard');
+import { listCards } from './cart.js';
+//var listCard = document.querySelector('.listCard');
 let body = document.querySelector('body');
 let total = document.querySelector('.total');
 let quantity = document.querySelector('.quantity');
@@ -27,7 +28,7 @@ let products = [
     id: 4,
     name: 'Blue jeans',
     image: 'casual1.jpeg',
-    price: 59.69
+    price: 59.65
   },
   //summer:
   {
@@ -112,7 +113,7 @@ let products = [
   }
 ];
 
-let listCards = [];
+var listCards = [];
 
 function initApp() {
   products.forEach((value, key) => {

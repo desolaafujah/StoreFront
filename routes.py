@@ -151,12 +151,14 @@ def register():
 # Route to update the cart data
 @app.route("/update_cart", methods=['POST'])
 def update_cart():
-    global list_cards_string
-    global updated_list_cards
+    #global list_cards_string
+    #global updated_list_cards
     data = request.json  # Retrieve the JSON data sent from the frontend
-    updated_list_cards = data  # Assign the updated data to a new list variable
-    list_cards_string = str(updated_list_cards)  # Convert the list to a string representation
-    return list_cards_string  # Return the updated list_cards data as a string
+    session['cart'] = data  # Store the cart data in the session
+    return "Cart updated successfully", 200
+    #updated_list_cards = data  # Assign the updated data to a new list variable
+    #list_cards_string = str(updated_list_cards)  # Convert the list to a string representation
+    #return list_cards_string  # Return the updated list_cards data as a string
 
 
 @app.route("/log_in", methods=['GET', 'POST'])
@@ -188,12 +190,15 @@ def log_in():
                         <th>Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
             """
 
             total_price = 0
+
+            updated_list_cards = session.get('cart', []) 
 
             for item in updated_list_cards:
                 if item != None: 
@@ -243,6 +248,8 @@ def log_in():
                 smtp.send_message(em)
 
             flash('Email Sent! Check your inbox hottie :)')
+
+            session.pop('cart', None) 
 
             return redirect(url_for('home'))  # if valid - send to home page
         # if the username is not found then flash the message below
