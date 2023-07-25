@@ -220,3 +220,16 @@ header .shopping span {
   font-size: 36px;
   margin-left: 50px;
 }
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a: hover {
+  color: white;
+}
+
+
+
+
