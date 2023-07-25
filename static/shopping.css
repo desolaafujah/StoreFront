@@ -230,6 +230,12 @@ a: hover {
   color: white;
 }
 
+/* Add the following CSS to style the "White T-shirt" text to black */
+.item .title a {
+  color: blue;
+  text-decoration: none; /* Optional, to remove underline from the link */
+}
+
 
 
 
