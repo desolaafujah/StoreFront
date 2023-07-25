@@ -51,9 +51,6 @@ body {
  .font-sm {
    font-size: 12px;
  }
- .font-df {
-   font-size: 14px;
- }
  .font-md {
    font-size: 18px;
  }
@@ -151,7 +148,6 @@ body {
 .mrg-gt {margin-top: 20px;}
 .mrgt-xxl{margin-top: 30px !important;}
 .mrg-xl {margin-left: 5px;}
-.mrg-sl {margin-left: 10px;}
 .mrg-dl {margin-left: 15px;}
 .mrg-gl {margin-left: 20px;}
 .mrg-xr {margin-right: 5px;}
