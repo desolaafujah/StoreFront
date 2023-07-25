@@ -58,9 +58,13 @@
                 {% endif %}
             </div>
         </fieldset>
+        
+        
         <div class="form-group">
-            <input type="submit" value="Sign Up" class="btn btn-outline-info" style="padding: 12px 24px; background-color: #007bff; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 18px;">
-            
+            <a href="{{ url_for('log_in') }}" class="link" style="padding: 12px 24px; background-color: #007bff; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; text-decoration:none; font-family: Arial, sans-serif;">Log In </a>           
+            <br>
+            <br>
+            <input type="submit" value="Sign Up" class="btn btn-outline-info" style="padding: 12px 24px; background-color: #007bff; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-family: Arial, sans-serif;">   
         </div>
     </form>
 </div>
