@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width">
     <title>Store Front</title>
     <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
-    <h1>StoreFront</h1>
-    <h2>shopping made simple.</h2>
-    <a href="{{ url_for('shop') }}">
-        <button type="button" style="width: 30px; height: 35px; position:relative; top: -2px; right:-1390px; ">
-            <img src="{{ url_for('static', filename='image/shoppingbagblack.png') }}" alt="bag" style="width: 100%; height: auto;">
-        </button>
+    <!-- <h1>StoreFront</h1>
+    
+    <h2>shopping made simple.</h2> -->
+    
+    <a href="{{ url_for('userAccount') }}" class="myAccount">
+        <button type="button" class="btn btn-outline-secondary">My Account</button>
+        <!-- <button type="button">
+            my account
+        </button> -->
     </a>
-    <a href="{{ url_for('shop') }}">
-        <button type="button" style="width: 30px; height: 35px; position:relative; top: -2px; right:-1390px; ">
-            <img src="{{ url_for('static', filename='image/shoppingbagblack.png') }}" alt="bag" style="width: 100%; height: auto;">
-        </button>
-    </a>
+    
+    
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="{{ url_for('shop') }}" class="link">Shop All</a>
@@ -27,12 +28,43 @@
         <a href="{{ url_for('casual') }}" class="link">Casual</a>
         <a href="{{ url_for('summer') }}" class="link">Summer</a>
     </div>
+    
     <!-- Use any element to open the sidenav -->
-    <span onclick="openNav()">
+    <span onclick="openNav()" style="right: 700px; position: relative; top: -300px;">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
     </span>
+    
+    <div class="box" style="right: -10px; bottom: -100px;">
+        <span style="--i:1"><img src="https://i.pinimg.com/564x/19/09/bc/1909bc19fde51f16af4de21c731ad686.jpg"></span> <!--changed-->
+        <span style="--i:2"><img src="https://i.pinimg.com/564x/b7/02/90/b70290b706bc94447c19642a12588c91.jpg"></span>
+        <span style="--i:3"><img src="https://i.pinimg.com/564x/1b/dc/b2/1bdcb25e654126774f70d7fd1aa413db.jpg"></span>
+        <span style="--i:4"><img src="https://i.pinimg.com/564x/28/52/d3/2852d3864e3ba21d47a0376176e05a16.jpg"></span>
+        <span style="--i:5"><img src="https://i.pinimg.com/236x/d6/7f/48/d67f484152c0436d9f89b1e124189bc7.jpg"></span>
+        <span style="--i:6"><img src="https://i.pinimg.com/236x/7d/ee/61/7dee61413473484cc78d7497c34781fb.jpg"></span>
+        <span style="--i:7"><img src="https://i.pinimg.com/236x/4c/37/75/4c3775d336bd075008bb53a723fce6f3.jpg"></span>
+        <span style="--i:8"><img src="https://i.pinimg.com/236x/4f/80/ba/4f80bafae15d66190b6fa6b5321ea220.jpg"></span>
+    
+    <!-- <h1>StoreFront</h1>  
+    <h2>shopping made simple.</h2> -->
+    
+    </div>
+    
+    <p>
+        Welcome To 
+        <span>
+          StoreFront
+        </span>
+        &mdash; where shopping is made simple &mdash;
+    </p>
+
+    <a href="{{ url_for('shop') }}">
+        <button class="shopNow">Shop Now!</button>
+    </a>
+    
+
+    
     <script>
         /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
         function openNav() {
@@ -44,6 +76,12 @@
             document.getElementById("mySidenav").style.width = "0";
             document.getElementById("main").style.marginLeft = "0";
         }
+
+        document.querySelector( "#retrobg-sun" ).onclick = () => {
+	        document.querySelector( "#retrobg" ).classList.toggle( "retrobg-shutdown" );
+        };
+
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,10 +1,95 @@
+body { 
+  font: 400 1em/1.5 "Neuton"; 
+  background: #090d00; 
+  color: rgba(255,255,255,.25); 
+  text-align: center; 
+  margin: 0 }
+
+p {
+	text-transform: uppercase;
+	letter-spacing: .5em;
+	display: inline-block;
+	border: 4px double rgba(255,255,255,.25);
+	border-width: 4px 0;
+	padding: 1.5em 0em;
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	width: 40em;
+	margin: 0 0 0 -20em;
+}
+
+span {
+  font: 700 4em/1 "Oswald", sans-serif;
+  letter-spacing: 0;
+  padding: 0.25em 0 0.325em;
+  display: block;
+  text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+  /* Clip Background Image */
+  background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Animate Background Image */
+  -webkit-text-fill-color: transparent;
+  animation: aitf 80s linear infinite; /* Remove the 'webkit' prefix from animation property */
+  /* Activate hardware acceleration for smoother animations */
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+}
+
+
+  /* span {
+
+  	font: 700 4em/1 "Oswald", sans-serif;
+  	letter-spacing: 0;
+  	padding: .25em 0 .325em;
+	  display: block;
+	  margin: 0 auto;
+  	text-shadow: 0 0 80px rgba(255,255,255,.5);
+
+/* Clip Background Image */
+
+	  /* background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+	  -webkit-background-clip: text;
+	  background-clip: text; */
+
+/* Animate Background Image */
+/* 
+	  -webkit-text-fill-color: transparent;
+	  -webkit-animation: aitf 80s linear infinite; */
+
+/* Activate hardware acceleration for smoother animations */
+
+	  /* -webkit-transform: translate3d(0,0,0);
+	  -webkit-backface-visibility: hidden;
+
+  } */ 
+
+
+/* Animate Background Image */
+@keyframes aitf {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* @-webkit-keyframes aitf {
+	0% { background-position: 0% 50%; }
+	100% { background-position: 100% 50%; }
+} */
+
+
 h1 {
   font-weight: 400;
   font-size: 80px;
   color: white;
-  font-family: 'Rotweiler', sans-serif;
+  /* font-family: 'Rotweiler', sans-serif; */
+  font-family: 'myFont', sans-serif;
   position: absolute;
-  top: 42%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
@@ -17,24 +102,81 @@ h2 {
   color: white;
   font-family: 'Rotweiler', sans-serif;
   position: absolute;
-  top: 53%;
+  top: 26%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   text-align: center;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-image: url('/static/image/storefront6.jpg');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #000;
+}
+
+.box {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: animate 20s linear infinite;
+  z-index:1;
+}
+
+@keyframes animate {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  
+  100% {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+.box span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);
+  -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #0004); 
+}
+
+.box span img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+body {
+  /* background-image: url('/static/image/storefront6.jpg'); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
 
 .shopping {
-  position: relative;
-  top: -2px;
-  right: -1390px;
+  position: fixed; /*was relative*/
+  top: 20px; /*was -2px*/
+  /* right: -1390px;  */
+  left: 20px;
   width: 30px;
   height: 35px;
 }
@@ -43,7 +185,7 @@ body {
   cursor: pointer;
 }
 
-.bar1,
+/* .bar1,
 .bar2,
 .bar3 {
   position: relative;
@@ -59,6 +201,23 @@ body {
 .bar1,
 .bar2,
 .bar3 div:hover {
+  cursor: pointer;
+} */
+
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.bar1:hover,
+.bar2:hover,
+.bar3:hover {
   cursor: pointer;
 }
 
@@ -108,4 +267,18 @@ body {
   .sidenav a {
     font-size: 18px;
   }
+}
+
+
+.myAccount {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+}
+
+
+.shopNow {
+  position: relative;
+  top: 300px;
 }

@@ -37,6 +37,10 @@ def casual():
 def summer():
     return render_template('summer.html')
 
+@app.route("/userAccount")
+def userAccount():
+    return render_template('userAccount.html')
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
