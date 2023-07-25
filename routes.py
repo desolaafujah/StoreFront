@@ -94,6 +94,7 @@ def register():
                             <th>Name</th>
                             <th>Price</th>
                             <th>Quantity</th>
+                            <th>Product Link</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -106,6 +107,8 @@ def register():
                         name = item['name']
                         price = item['price']
                         quantity = item['quantity']
+                        brand = item['brand']
+                        link = item['link']
 
                         total_price += price * quantity
 
@@ -114,6 +117,7 @@ def register():
                             <td>{name}</td>
                             <td>{price}</td>
                             <td>{quantity}</td>
+                            <td><a href={link} class="link">{brand}</a>
                         </tr>
                         """
 
@@ -194,7 +198,7 @@ def log_in():
                         <th>Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th></th>
+                        <th>Product Link</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -209,6 +213,8 @@ def log_in():
                     name = item['name']
                     price = item['price']
                     quantity = item['quantity']
+                    brand = item['brand']
+                    link = item['link']
 
                     total_price += price * quantity
 
@@ -217,6 +223,7 @@ def log_in():
                         <td>{name}</td>
                         <td>{price}</td>
                         <td>{quantity}</td>
+                        <td><a href={link} class="link">{brand}</a>
                     </tr>
                     """
 

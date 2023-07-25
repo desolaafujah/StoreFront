@@ -22,13 +22,19 @@ let products = [
     name: 'White t-shirt',
     image: 'casual2.jpeg',
     price: 20.00,
-    category: 'casual'
+    //category: 'casual',
+    brand: 'Urban Outfitters', 
+    link: 'https://www.urbanoutfitters.com/shop/bdg-universal-shrunken-tee?inventoryCountry=US&color=010&size=XS&utm_medium=cpc&utm_source=google&utm_campaign=%5BNB%20PLA%20US%5D%20-%20PMAX%20-%20Womens%20-%20Tops&utm_content=&utm_term=&creative=&device=c&matchtype=&network=x&utm_kxconfid=vx6q4l3b6&gclid=CjwKCAjwtuOlBhBREiwA7agf1mnoViHo70iHegTYyRENT6hjr45AzEoQBnF7EFVd7sD0q-YG_n_TbhoCj-MQAvD_BwE&gclsrc=aw.ds&type=REGULAR&quantity=1'
+
   },
   {
     id: 4,
     name: 'Blue jeans',
     image: 'casual1.jpeg',
-    price: 59.69
+    price: 59.69,
+    //category: 'casual',
+    brand: 'Pacsun', 
+    link: 'https://www.pacsun.com/pacsun/eco-medium-blue-dad-jeans-4701066.html?store=PACSUN-1157&country=US&currency=USD&OriginId=GOG&XCIDP=P%3AG_Shopping_PMAX_W_Bottoms+%3E+Denim&gclid=CjwKCAjwtuOlBhBREiwA7agf1nx5wFoq5Z0os9H-E0ku-UX0bW9JdudpI6qYc0e-DsTEI8Z_SfNdARoCJdwQAvD_BwE&gclsrc=aw.ds'
   },
   //summer:
   {
@@ -36,35 +42,45 @@ let products = [
     name: 'Long green dress',
     image: 'summer1.jpeg',
     price: 251.30,
-    category: 'summer'
+    //category: 'summer',
+    brand: 'Savannah Morrow', 
+    link: 'https://savannahmorrow.com/products/jaya-dress-agave'
   },
   {
     id: 10,
     name: 'Colorful mini dress',
     image: 'summer2.jpeg',
     price: 789.00,
-    category: 'summer'
+    //category: 'summer',
+    brand: 'David Jones', 
+    link: 'https://www.davidjones.com/Product/25827125'
   },
   {
     id: 10,
     name: 'Floral open back dress',
     image: 'summer3.jpeg',
     price: 349.00,
-    category: 'summer'
+    //category: 'summer',
+    brand: 'Needle & Thread', 
+    link:'https://us.needleandthread.com/products/sunrise-bloom-backless-cotton-micro-mini-dress-moonshine?epik=dj0yJnU9MnhzOVJNMEJEYzhnXzVpdnlpcjB4ZnZRM2o1UDNxekkmcD0wJm49MkNxeHI5dmlYeXBPLTZmLXBBeE5OQSZ0PUFBQUFBR1M0RlJB'
   },
   {
     id: 11,
     name: 'Mini blue floral dress',
     image: 'summer4.jpeg',
     price: 189.00,
-    category: 'summer'
+    //category: 'summer',
+    brand: 'Bardot', 
+    link: 'https://www.usa.bardot.com/product/lila-flounce-dress-58061DB_WATER+FLRL.html'
   },
   {
     id: 12,
     name: 'Long white dress',
     image: 'summer5.jpeg',
     price: 89.99,
-    category: 'summer'
+    //category: 'summer',
+    brand:'Lichi', 
+    link: 'https://lichi.com/ww/en/product/43137?ssp_iabi=1683999469025'
   },
   //nightout:
   {
@@ -72,35 +88,45 @@ let products = [
     name: 'Black corsette',
     image: 'nightout1.jpeg',
     price: 49.95,
-    category: 'nightout'
+    //category: 'nightout',
+    brand:'Showpo', 
+    link: 'https://www.showpo.com/us/vaira-strapless-corset-top-in-black.html'
   },
   {
     id: 5,
     name: 'Black leather pants',
     image: 'nightout2.jpeg',
     price: 59.99,
-    category: 'nightout'
+    //category: 'nightout',
+    brand:'Nordstrom', 
+    link: 'https://www.nordstrom.com/s/franklin-high-waist-faux-leather-wide-leg-pants/7365895?origin=keywordsearch-personalizedsort&breadcrumb=Home%2FAll%20Results&color=001'
   },
   {
     id: 7,
     name: 'Striped pants',
     image: 'nightout3.jpeg',
     price: 65.00,
-    category: 'nightout'
+    //category: 'nightout',
+    brand:'Princess Polly', 
+    link: 'https://us.princesspolly.com/products/archer-pants-pinstripe-grey-petite?currency=USD&variant=39751561576532&utm_medium=cpc&utm_source=google&utm_campaign=Google%20Shopping&utm_source=cpc&utm_medium=google&utm_term=&adid=&matchtype=&addisttype=xpla&tw_source=google&tw_adid=&tw_campaign=19750607918&gclid=CjwKCAjwtuOlBhBREiwA7agf1pm79rI9QtfgJsGEto80zWugs5ymvv_sWcLAy4bBclda6JgWRdR5MxoCOaYQAvD_BwE'
   },
   {
     id: 13,
     name: 'Embroidered top',
     image: 'nightout4.jpeg',
     price: 128.00,
-    category: 'nightout'
+    //category: 'nightout',
+    brand:'Free People', 
+    link: 'https://www.freepeople.com/shop/florence-top2/?color=001&countryCode=US&gclid=CjwKCAjwtuOlBhBREiwA7agf1ogt3ykN4maUQrmVHLEoWFZvw2N4qvTdwaSDnf3IVEJsbR65eZLCQBoCuL8QAvD_BwE&gclsrc=aw.ds&inventoryCountry=US&size=M&utm_kxconfid=vx6ro62gj&type=REGULAR&quantity=1'
   },
   {
     id: 14,
     name: 'Silver top',
     image: 'nightout5.jpeg',
     price: 52.00,
-    category: 'nightout'
+    category: 'nightout',
+    brand:'MOTEL', 
+    link: 'https://us.motelrocks.com/products/pratiba-top-silver'
   },
   //vintage:
   {
@@ -108,21 +134,27 @@ let products = [
     name: 'Vintage leather jacket',
     image: 'vintage2.jpeg',
     price: 218.00,
-    category: 'vintage'
+    //category: 'vintage',
+    brand:'Cherish the Label', 
+    link: 'https://cherishthelabel.com/collections/new-arrivals-1/products/vintage-double-collar-oversized-leather-bomber-jacket-xs-xxl'
   },
   {
     id: 2,
     name: 'Cowboy boots',
     image: 'vintage1.jpeg',
     price: 169.99,
-    category: 'vintage'
+    //category: 'vintage',
+    brand:'Country Outfitter', 
+    link: 'https://www.countryoutfitter.com/shyanne-womens-loretta-western-boots---snip-toe/2000014395.html?dwvar_2000014395_color=280#q=Cowgirl+boots&start=4'
   },
   {
     id: 6,
     name: 'Vintage jean skirt',
     image: 'vintage3.jpeg',
     price: 99.00,
-    category: 'vintage'
+    //category: 'vintage',
+    brand:'Urban Outfitters', 
+    link: 'https://www.urbanoutfitters.com/shop/bdg-kendall-denim-maxi-skirt?color=093&size=XS&utm_medium=social&utm_source=pinterest&utm_campaign=organic-shopping&utm_content=WOMENS-BOTTOMS&utm_kxconfid=vx6q5cl47&epik=dj0yJnU9YjdnTWJiVWRfYUJkbm9ReUR2Y0FabHZSd3pCNVh3TEgmcD0wJm49a1UtalM5X3oteHg2MlE0N3hGNG5VdyZ0PUFBQUFBR1M0QnZv&type=REGULAR&quantity=1'
   }
 ];
 
