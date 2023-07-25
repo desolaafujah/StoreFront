@@ -278,7 +278,65 @@ body {
 }
 
 
-.shopNow {
+/* .shopNow {
   position: relative;
   top: 300px;
+} */
+
+/* .shopButton {
+  position: absolute;
+  /* margin-top: 700px; /* Adjust the value to move the link down as needed */
+  /* text-align: center; Center the link horizontally */ 
+  top: 20px;
+  right: 20px;
+} */
+
+/* .shopButton a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: gray;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+} */
+
+/* .shopButton a:hover {
+  background-color: gray;
+} */
+
+@import url('https://fonts.googlsapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+.shopNow {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.shopButton a{
+  position: relative;
+  background: white;
+  color: black;
+  text-decoration: none;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  padding: 10px 30px;
+  transition: 0.5s;
+  top: 310px;
+  left: -130px;
+
+}
+
+.shopButton a:hover {
+  background: gray;
+  letter-spacing: 0.25em;
+}
+
+.shopNow {
+  animation: none;
+  -webkit-animation: none;
+  -moz-animation: none;
+  -o-animation: none;
 }
