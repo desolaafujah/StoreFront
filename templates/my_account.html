@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Account</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}!</h1>
+    <p>Email: {{ user.email }}</p>
+
+    <h2>Past Orders</h2>
+    <ul>
+        {% for order in past_orders %}
+        <li>
+            Order ID: {{ order.id }} - Date: {{ order.date }}
+            {% if order.details %}
+                {{ order.details | safe }}
+            {% else %}
+                No details available for this order.
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

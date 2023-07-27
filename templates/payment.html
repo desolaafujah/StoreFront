@@ -58,15 +58,27 @@
                 {% endif %}
             </div>
         </fieldset>
+    </div>
+    <div class="form-group">
+        <a href="{{ url_for('log_in') }}" class="link" style="padding: 12px 24px; background-color: #007bff; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; text-decoration:none; font-family: Arial, sans-serif;">Log In </a>           
+        <br>
+        <br>
+        <input type="submit" value="Sign Up" class="btn btn-outline-info" style="padding: 12px 24px; background-color: #007bff; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-family: Arial, sans-serif;">   
+    </div>
         
-        
-        <div class="form-group">
-            <a href="{{ url_for('log_in') }}" class="link" style="padding: 12px 24px; background-color: #007bff; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; text-decoration:none; font-family: Arial, sans-serif;">Log In </a>           
-            <br>
-            <br>
-            <input type="submit" value="Sign Up" class="btn btn-outline-info" style="padding: 12px 24px; background-color: #007bff; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; font-family: Arial, sans-serif;">   
-        </div>
     </form>
+
+
+    <!-- Add code to display flashed messages here -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
 </div>
 
 {% endblock %}

@@ -11,7 +11,6 @@ from helper import save_users_to_database
 from datetime import datetime
 import json
 from sqlalchemy.orm import sessionmaker
-from flask_migrate import Migrate
 
 app = Flask(__name__)
 list_cards_string = '' # Define list_cards as a global variable
@@ -19,7 +18,7 @@ updated_list_cards = []
 
 app.config['SECRET_KEY'] = '1324f97949e0f2c0cb404cbbfe9b9c9d'
 # Create a sqlite Database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///new_database.db'
 db = SQLAlchemy(app)
 
 @app.route("/")
@@ -67,7 +66,6 @@ def my_account():
             # Fetch the user's past orders from the database, if applicable
             past_orders = fetch_past_orders(user)
             past_order_details = [order.details for order in past_orders]
-            print(past_order_details )
             db_session.close()
             return render_template('my_account.html', user=user, past_orders=past_orders)
 
@@ -290,8 +288,8 @@ def log_in():
                 </table>
                 """
 
-                if new_user.id:
-                    new_order = Order(user_id=new_user.id)  # Associate the order with the newly created user
+                if user.id:
+                    new_order = Order(user_id=user.id)  # Associate the order with the newly created user
                     # Add more order details to the order, e.g., items, total price, etc.
                     new_order.details = table_html
                     new_order.total_price = total_price
@@ -345,6 +343,7 @@ class Order(db.Model):
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     details = db.Column(db.Text, nullable=False)  # Add 'details' field to store the order details as text
+    total_price = db.Column(db.Float, nullable=False)  # Add 'total_price' field to store the total price of the order
 
 with app.app_context():
     db.create_all()
